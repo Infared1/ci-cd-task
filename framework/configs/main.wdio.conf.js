@@ -4,8 +4,7 @@ import fs from 'fs-extra';
 export const downloadDir = path.resolve('./tmp');
 export const uploadDir = path.resolve('./upload');
 const allureResultsDir = path.resolve('./allure-results');
-const BRANCH_NAME = process.env.BRANCH_NAME || 'unit_5_practice';
-console.log(`Branch Name from ENV: ${BRANCH_NAME}`);
+const BRANCH_NAME = process.env.BRANCH_NAME || 'test1';
 
 function clearAllureResults() {
     fs.emptyDirSync(allureResultsDir);
