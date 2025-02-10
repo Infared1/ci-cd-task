@@ -13,12 +13,12 @@ function clearAllureResults() {
 
 export const mainConfig = {
     runner: 'local',
-    user: process.env.BROWSERSTACK_USERNAME || '',
-    key: process.env.BROWSERSTACK_ACCESS_KEY || '',
+    // user: process.env.BROWSERSTACK_USERNAME || '',
+    // key: process.env.BROWSERSTACK_ACCESS_KEY || '',
 
-    services: process.env.BROWSERSTACK_USERNAME ? ['browserstack'] : [],
-    exclude: [
-    ],
+    // services: process.env.BROWSERSTACK_USERNAME ? ['browserstack'] : [],
+    // exclude: [
+    // ],
     maxInstances: 1,
     logLevel: 'warn',
     bail: 0,
@@ -35,10 +35,6 @@ export const mainConfig = {
     ]],
 
     baseUrl: "https://the-internet.herokuapp.com/",
-
-    // hostname: 'localhost',
-    // port: 4444,
-    // path: '/',
 
     onPrepare: function() {
         fs.ensureDir(downloadDir);

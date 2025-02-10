@@ -1,7 +1,7 @@
 import { downloadDir, mainConfig } from "../framework/configs/main.wdio.conf.js";
 
 const BROWSER = process.env.BROWSER || 'chrome';
-const RUN_ON_BROWSERSTACK = process.env.BROWSERSTACK === 'true';
+//const RUN_ON_BROWSERSTACK = process.env.BROWSERSTACK === 'true';
 
 const browserOptions = {
     chrome: {
@@ -40,16 +40,16 @@ const browserOptions = {
             }
         }
     },
-    browserstack: {
-        browserName: "chrome",
-        "bstack:options": {
-            os: "Windows",
-            osVersion: "10",
-            sessionName: "WebDriverIO Cucumber Test",
-            local: false,
-            seleniumVersion: "4.0.0",
-        }
-    }
+    // browserstack: {
+    //     browserName: "chrome",
+    //     "bstack:options": {
+    //         os: "Windows",
+    //         osVersion: "10",
+    //         sessionName: "WebDriverIO Cucumber Test",
+    //         local: false,
+    //         seleniumVersion: "4.0.0",
+    //     }
+    // }
 };
 
 export const config = {
@@ -64,7 +64,7 @@ export const config = {
         ],
         capabilities: [
             browserOptions[BROWSER] || browserOptions['chrome'],
-            RUN_ON_BROWSERSTACK ? browserOptions['browserstack'] : (browserOptions[BROWSER] || browserOptions['chrome'])
+            //RUN_ON_BROWSERSTACK ? browserOptions['browserstack'] : (browserOptions[BROWSER] || browserOptions['chrome'])
         ]
     }
 };
