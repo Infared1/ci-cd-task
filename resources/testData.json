@@ -1,0 +1,9 @@
+{
+    "username": "admin",
+    "password": "admin",
+    "urlUITest": "http://uitestingplayground.com/",
+    "urlWiki": "https://www.wikipedia.org/",
+    "fullName": "Albert Einstein",
+    "urlSteam": "https://store.steampowered.com/",
+    "urlWeather": "https://www.accuweather.com/"
+}

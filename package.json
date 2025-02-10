@@ -1,0 +1,47 @@
+{
+  "name": "a1qa-wdio-framework",
+  "type": "module",
+  "scripts": {
+    "chrome.cucumber": "wdio run ./configs/chrome.cucumber.conf.js",
+    "edge.cucumber": "npx wdio run ./configs/edge.cucumber.conf.js",
+    "test:data": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/dataTables.feature",
+    "test:add:remove": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/addRemoveElements.feature",
+    "test:auth": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/basicAuth.feature",
+    "test:dynamic:id": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/dynamicID.feature",
+    "test:text:input": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/textInput.feature",
+    "test:scrollbars": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/scrollbars.feature",
+    "test:verify:text": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/verifyText.feature",
+    "test:wiki": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/wiki.feature",
+    "test:steam": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/steam.feature",
+    "test:weather": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/weather.feature",
+    "test:search:game": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/searchGame.feature",
+    "test:sample:app": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/sampleApp.feature"
+  },
+  "dependencies": {
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
+    "@babel/register": "^7.23.7",
+    "@wdio/allure-reporter": "^8.34.0",
+    "@wdio/cli": "^8.35.1",
+    "@wdio/local-runner": "^8.35.1",
+    "@wdio/spec-reporter": "^8.32.4",
+    "chai": "^5.1.0",
+    "fs-extra": "^11.2.0",
+    "winston": "^3.13.0"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "@wdio/cucumber-framework": "^9.7.2",
+    "allure-commandline": "^2.32.0",
+    "wdio-browserstack-service": "^0.1.19"
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
