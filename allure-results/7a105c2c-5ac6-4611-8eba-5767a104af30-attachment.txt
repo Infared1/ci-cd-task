@@ -1,4 +1,0 @@
-{
-  "using": "xpath",
-  "value": "//*[contains(@class, \"wp-element-button\") and contains(., \"Click Events\")]"
-}
