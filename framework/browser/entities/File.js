@@ -1,4 +1,5 @@
 import Timeouts from '../../constants/Timeouts.js';
+import { browser } from '@wdio/globals'
 import Logger from '../../utils/Logger.js';
 import fs from 'fs-extra'
 import path from 'path'
@@ -6,7 +7,7 @@ import path from 'path'
 export class File {
 
     constructor() {
-        this.browser = null;
+        this.browser = browser;
     }
 
     /**

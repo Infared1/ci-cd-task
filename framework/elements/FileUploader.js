@@ -1,3 +1,8 @@
+import BaseElement from './BaseElement.js';
+import ElementType from '../constants/ElementType.js';
+import Logger from '../utils/Logger.js';
+
+
 export class FileUploader extends BaseElement {
     constructor(locator, name) {
         super(locator, name);

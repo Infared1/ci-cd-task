@@ -153,8 +153,36 @@ class Browser {
 
     return browser.switchToWindow(handles[prevIndex]);
   }
-  
-};
+
+  /**
+   * Switch to an iframe by its selector
+   * @param {string} frameSelector - CSS or XPath selector of the iframe
+   * @returns {Promise<void>}
+   */
+  async switchToFrame(frameSelector) {
+    Logger.info(`Switching to iframe: "${frameSelector}"`);
+
+    const iframeElement = await this.#getBrowser().$(frameSelector);
+
+    if (!(await iframeElement.isExisting())) {
+      throw new Error(`Iframe not found with selector: ${frameSelector}`);
+    }
+
+    await this.#getBrowser().switchToFrame(iframeElement);
+    Logger.info(`Switched to iframe: "${frameSelector}"`);
+  }
+
+  /**
+   * Switch back to the main content
+   * @returns {Promise<void>}
+   */
+  async switchToMainContent() {
+    Logger.info("Switching back to the main content");
+    await this.#getBrowser().switchToFrame(null);
+    Logger.info("Switched to the main content");
+  }
+
+}
 
 
-export default new Browser(browser);
+export default new Browser();

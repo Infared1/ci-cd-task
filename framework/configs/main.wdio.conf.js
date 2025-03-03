@@ -1,15 +1,17 @@
 import path from 'node:path';
 import fs from 'fs-extra';
+import Browser from "../browser/Browser.js";
+import AllureReporter from "@wdio/allure-reporter";
 
 export const downloadDir = path.resolve('./tmp');
 export const uploadDir = path.resolve('./upload');
 const allureResultsDir = path.resolve('./allure-results');
 const BRANCH_NAME = process.env.BRANCH_NAME || 'test1';
 
-function clearAllureResults() {
-    fs.emptyDirSync(allureResultsDir);
-    console.log('The folder "allure-results" is cleaned');
-  }
+// function clearAllureResults() {
+//     fs.emptyDirSync(allureResultsDir);
+//     console.log('The folder "allure-results" is cleaned');
+//   }
 
 export const mainConfig = {
     runner: 'local',
@@ -29,8 +31,9 @@ export const mainConfig = {
         ['allure',
             {
                 outputDir: 'allure-results',
-                disableWebdriverStepsReporting: true,
-                disableWebdriverScreenshotsReporting: true,
+                disableWebdriverStepsReporting: false,
+                disableWebdriverScreenshotsReporting: false,
+                useCucumberStepReporter: true
             },
     ]],
 
@@ -38,7 +41,7 @@ export const mainConfig = {
 
     onPrepare: function() {
         fs.ensureDir(downloadDir);
-        clearAllureResults();
+        //clearAllureResults();
     },
 
     after: function (result, capabilities, specs) {
@@ -50,9 +53,13 @@ export const mainConfig = {
     //  },
 
     afterTest: async function (test, context, { error, result, duration, passed, retries }) {
-        if (!passed) {
-            await browser.takeScreenshot();
+        console.log("Executing afterTest hook...");
+        const screenshot = await browser.takeScreenshot();
+
+        if (error) {
+            AllureReporter.addAttachment('Screenshot on failure', Buffer.from(screenshot, 'base64'), 'image/png');
         }
     },
 
 }
+//allure generate allure-results --clean

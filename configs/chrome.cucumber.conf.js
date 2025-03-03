@@ -1,7 +1,6 @@
 import { downloadDir, mainConfig } from "../framework/configs/main.wdio.conf.js";
 
 const BROWSER = process.env.BROWSER || 'chrome';
-//const RUN_ON_BROWSERSTACK = process.env.BROWSERSTACK === 'true';
 
 const browserOptions = {
     chrome: {
@@ -9,7 +8,7 @@ const browserOptions = {
         "goog:chromeOptions": {
             args: [
                 //'--incognito', '-private'(firefox),
-                //'--headless',
+                '--headless',
                 '--disable-infobars',
                 '--start-maximized',
                 '--window-size=1920,1080',
@@ -40,16 +39,6 @@ const browserOptions = {
             }
         }
     },
-    // browserstack: {
-    //     browserName: "chrome",
-    //     "bstack:options": {
-    //         os: "Windows",
-    //         osVersion: "10",
-    //         sessionName: "WebDriverIO Cucumber Test",
-    //         local: false,
-    //         seleniumVersion: "4.0.0",
-    //     }
-    // }
 };
 
 export const config = {
@@ -58,13 +47,23 @@ export const config = {
         framework: 'cucumber',
         cucumberOpts: {
             require: ['./test/step-definitions/**/*.js'],
+            backtrace: false,
+            requireModule: [],
+            dryRun: false,
+            failFast: false,
+            snippets: true,
+            source: true,
+            profile: [],
+            strict: false,
+            tagExpression: '',
+            timeout: 60000,
+            ignoreUndefinedDefinitions: false
         },
         specs: [
             '../test/features/**/*.feature'
         ],
         capabilities: [
-            browserOptions[BROWSER] || browserOptions['chrome'],
-            //RUN_ON_BROWSERSTACK ? browserOptions['browserstack'] : (browserOptions[BROWSER] || browserOptions['chrome'])
+            browserOptions[BROWSER] || browserOptions['chrome']
         ]
     }
 };

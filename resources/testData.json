@@ -5,5 +5,8 @@
     "urlWiki": "https://www.wikipedia.org/",
     "fullName": "Albert Einstein",
     "urlSteam": "https://store.steampowered.com/",
-    "urlWeather": "https://www.accuweather.com/"
+    "urlWeather": "https://www.accuweather.com/",
+    "fileName": "text.txt",
+    "successMessage": "1 file(s) selected",
+    "testUrl": "https://practice-automation.com/"
 }

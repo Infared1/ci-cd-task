@@ -15,7 +15,9 @@
     "test:steam": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/steam.feature",
     "test:weather": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/weather.feature",
     "test:search:game": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/searchGame.feature",
-    "test:sample:app": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/sampleApp.feature"
+    "test:sample:app": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/sampleApp.feature",
+    "test:upload": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/fileUpload.feature",
+    "test:click": "wdio run ./configs/chrome.cucumber.conf.js --spec ./test/features/clickEvents.feature"
   },
   "dependencies": {
     "@babel/core": "^7.24.3",
@@ -31,6 +33,7 @@
   },
   "devDependencies": {
     "@cucumber/cucumber": "^11.2.0",
+    "@wdio/browser-runner": "^9.9.0",
     "@wdio/cucumber-framework": "^9.7.2",
     "allure-commandline": "^2.32.0",
     "wdio-browserstack-service": "^0.1.19"
