@@ -8,7 +8,7 @@ const browserOptions = {
         "goog:chromeOptions": {
             args: [
                 //'--incognito', '-private'(firefox),
-                '--headless',
+                //'--headless',
                 '--disable-infobars',
                 '--start-maximized',
                 '--window-size=1920,1080',
